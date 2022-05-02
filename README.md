@@ -1,8 +1,29 @@
 # Benchmark optimized AI Inference on Intel CPU
 Repo to perform evaluation of AI inference workload consistantly across environments.
 
-1. Local: Host vs Containerized
-2. DevCloud: Bare-Metal vs Container Playground
+1. **Local:** Host vs Containerized
+2. **DevCloud:** Bare-Metal vs Container Playground
+3. TBD (stretch): Python vs CPP - eg. comparison with published benchmark results
+
+## Todo
+- [x] Identify initial common: container - dockerfile, host - tool, input, model, etc.
+- [ ] Tweak benchmark_app args for final evaluation
+- [ ] Generate functional port for DevCloud with minimal changes
+- [ ] Ensure identical containerized version with minimal changes
+- [ ] Run on DevCloud Bare-Metal (same hw)
+- [ ] Run on DevCloud Container Playground (same hw)
+- [ ] Run on Local host
+- [ ] Run on local machine container
+
+# Results
+| Environment/Throughput | OS | Platform | #1 FPS | #2 FPS | #3 FPS | FPS
+| :---- | :---: | :---: | :---: | :---: | :---: | :---: |
+| Local Host | ? | ? | ? | ? | ? |? |
+| Local Container | ? | ? | ? | ? | ? |? |
+| DevCloud Bare-Metal | ? | ? | ? | ? | ? |? |
+| DevCloud Container Playground | ? | ? | ? | ? | ? |? |
+
+# Initial Experiments functional code
 
 ## Local install & activate
 ```
