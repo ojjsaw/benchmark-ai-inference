@@ -16,12 +16,12 @@ Repo to perform evaluation of AI inference workload consistantly across environm
 - [ ] Run on local machine container
 
 # Results
-| Environment/Throughput | OS | Platform | #1 FPS | #2 FPS | #3 FPS | FPS
+| Environment/Throughput | OS | Platform | #1 FPS | #2 FPS | #3 FPS | Median FPS
 | :---- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Local Host | ? | ? | ? | ? | ? |? |
 | Local Container | ? | ? | ? | ? | ? |? |
-| DevCloud Bare-Metal | ? | ? | ? | ? | ? |? |
-| DevCloud Container Playground | ? | ? | ? | ? | ? |? |
+| DevCloud Bare-Metal | ? | 11th Gen Intel(R) Core(TM) i7-1185G7E @ 2.80GHz, 16GB RAM | 107.01 | 104.83 | 109.20 | 107 |
+| DevCloud Container Playground | ? | 11th Gen Intel(R) Core(TM) i7-1185GRE @ 2.80GHz, 16GB RAM | 94.39 | 96.32 | 98.20 | 96 |
 
 # Initial Experiments functional code
 
