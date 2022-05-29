@@ -1,0 +1,91 @@
+
+########################################################################
+#      Date:           Sat 28 May 2022 05:10:18 PM PDT
+#    Job ID:           447621.v-qsvr-1.devcloud-edge
+#      User:           u134874
+# Resources:           neednodes=1:idc045,nodes=1:idc045,walltime=01:00:00
+########################################################################
+
+[Step 1/11] Parsing and validating input arguments
+[ WARNING ]  -nstreams default value is determined automatically for a device. Although the automatic selection usually provides a reasonable performance, but it still may be non-optimal for some cases, for more information look at README. 
+[Step 2/11] Loading OpenVINO
+[ INFO ] OpenVINO:
+         API version............. 2022.1.0-7009-19bdd019745-refs/pull/1012/head
+[ INFO ] Device info
+         CPU
+         openvino_intel_cpu_plugin version 2022.1
+         Build................... 2022.1.0-7009-19bdd019745-refs/pull/1012/head
+
+[Step 3/11] Setting device configuration
+[Step 4/11] Reading network files
+[ INFO ] Read model took 175.20 ms
+[Step 5/11] Resizing network to match image sizes and given batch
+[ INFO ] Network batch size: 1
+[Step 6/11] Configuring input of the model
+[ INFO ] Model input 'data' precision u8, dimensions ([N,C,H,W]): 1 3 300 300
+[ INFO ] Model output 'detection_out' precision f32, dimensions ([...]): 1 1 100 7
+[Step 7/11] Loading the model to the device
+[ INFO ] Compile model took 268.06 ms
+[Step 8/11] Querying optimal runtime parameters
+[ INFO ] DEVICE: CPU
+[ INFO ]   AVAILABLE_DEVICES  , ['']
+[ INFO ]   RANGE_FOR_ASYNC_INFER_REQUESTS  , (1, 1, 1)
+[ INFO ]   RANGE_FOR_STREAMS  , (1, 8)
+[ INFO ]   FULL_DEVICE_NAME  , 11th Gen Intel(R) Core(TM) i7-1185G7E @ 2.80GHz
+[ INFO ]   OPTIMIZATION_CAPABILITIES  , ['WINOGRAD', 'FP32', 'FP16', 'INT8', 'BIN', 'EXPORT_IMPORT']
+[ INFO ]   CACHE_DIR  , 
+[ INFO ]   NUM_STREAMS  , 1
+[ INFO ]   INFERENCE_NUM_THREADS  , 0
+[ INFO ]   PERF_COUNT  , False
+[ INFO ]   PERFORMANCE_HINT_NUM_REQUESTS  , 0
+[Step 9/11] Creating infer requests and preparing input data
+[ INFO ] Create 4 infer requests took 0.76 ms
+[ INFO ] Prepare image /home/u134874/workdir/benchmark-ai-inference/test_images/car1.png
+[ WARNING ] Image is resized from ((259, 787)) to ((300, 300))
+[ INFO ] Prepare image /home/u134874/workdir/benchmark-ai-inference/test_images/car2.bmp
+[ WARNING ] Image is resized from ((637, 749)) to ((300, 300))
+[ INFO ] Prepare image /home/u134874/workdir/benchmark-ai-inference/test_images/cat.jpg
+[ INFO ] Prepare image /home/u134874/workdir/benchmark-ai-inference/test_images/dog.jpg
+[ INFO ] Prepare image /home/u134874/workdir/benchmark-ai-inference/test_images/person_detection.png
+[ WARNING ] Image is resized from ((960, 1699)) to ((300, 300))
+[Step 10/11] Measuring performance (Start inference asynchronously, 4 inference requests, inference only: True, limits: 20000 ms duration)
+[ INFO ] Benchmarking in inference only mode (inputs filling are not included in measurement loop).
+[ INFO ] First inference took 25.83 ms
+[Step 11/11] Dumping statistics report
+Count:          2188 iterations
+Duration:       20036.89 ms
+Latency:
+    Median:     31.06 ms
+    AVG:        36.38 ms
+    MIN:        13.18 ms
+    MAX:        1156.77 ms
+Throughput: 109.20 FPS
+
+########################################################################
+# End of output for job 447621.v-qsvr-1.devcloud-edge
+# Date: Sat 28 May 2022 05:10:44 PM PDT
+########################################################################
+
+sys.argv[0]=[/etc/collectd/telemetrySender.py]
+sys.argv[1]=[u134874]
+sys.argv[2]=[447621.v-qsvr-1.devcloud-edge]
+sys.argv[3]=[26]
+sys.argv[4]=[1653783018]
+sys.argv[5]=[1653783044]
+sys.argv[6]=[idc045_compnode_openvino-latest_intel-core_i7-1185g7e_iris-xe-graphics_ram16gb_none]
+USER_ID=[u134874]
+JOB_ID=[447621]
+JOB_RUNTIME=[26]
+FROM_TIME=[1653783018]
+TO_TIME=[1653783044]
+HOST_TYPE=[idc045_compnode_openvino-latest_intel-core_i7-1185g7e_iris-xe-graphics_ram16gb_none]
+EDGE_NAME=[s045-n002]
+PBS_O_WORKDIR=[/home/u134874/workdir/benchmark-ai-inference]
+APPLICATION_NAME=[benchmark-ai-inference]
+INTEL_SKU=[core-i7]
+customFound  True
+in send app metrics writer
+idc045_compnode_openvino-latest_intel-core_i7-1185g7e_iris-xe-graphics_ram16gb_none
+cpu data info  296
+removing the json
+InfluxDBClient.write_points(metric_list) result_success:[True]
