@@ -1,0 +1,54 @@
+[Step 1/11] Parsing and validating input arguments
+[ WARNING ]  -nstreams default value is determined automatically for a device. Although the automatic selection usually provides a reasonable performance, but it still may be non-optimal for some cases, for more information look at README. 
+[Step 2/11] Loading OpenVINO
+[ INFO ] OpenVINO:
+         API version............. 2022.1.0-7019-cdb9bec7210-releases/2022/1
+[ INFO ] Device info
+         CPU
+         openvino_intel_cpu_plugin version 2022.1
+         Build................... 2022.1.0-7019-cdb9bec7210-releases/2022/1
+
+[Step 3/11] Setting device configuration
+[Step 4/11] Reading network files
+[ INFO ] Read model took 13.02 ms
+[Step 5/11] Resizing network to match image sizes and given batch
+[ INFO ] Network batch size: 1
+[Step 6/11] Configuring input of the model
+[ INFO ] Model input 'data' precision u8, dimensions ([N,C,H,W]): 1 3 300 300
+[ INFO ] Model output 'detection_out' precision f32, dimensions ([...]): 1 1 100 7
+[Step 7/11] Loading the model to the device
+[ INFO ] Compile model took 76.72 ms
+[Step 8/11] Querying optimal runtime parameters
+[ INFO ] DEVICE: CPU
+[ INFO ]   AVAILABLE_DEVICES  , ['']
+[ INFO ]   RANGE_FOR_ASYNC_INFER_REQUESTS  , (1, 1, 1)
+[ INFO ]   RANGE_FOR_STREAMS  , (1, 16)
+[ INFO ]   FULL_DEVICE_NAME  , 11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz
+[ INFO ]   OPTIMIZATION_CAPABILITIES  , ['WINOGRAD', 'FP32', 'FP16', 'INT8', 'BIN', 'EXPORT_IMPORT']
+[ INFO ]   CACHE_DIR  , 
+[ INFO ]   NUM_STREAMS  , 1
+[ INFO ]   INFERENCE_NUM_THREADS  , 0
+[ INFO ]   PERF_COUNT  , False
+[ INFO ]   PERFORMANCE_HINT_NUM_REQUESTS  , 0
+[Step 9/11] Creating infer requests and preparing input data
+[ INFO ] Create 4 infer requests took 0.43 ms
+[ INFO ] Prepare image /home/odsawant/github/benchmark-ai-inference/test_images/car1.png
+[ WARNING ] Image is resized from ((259, 787)) to ((300, 300))
+[ INFO ] Prepare image /home/odsawant/github/benchmark-ai-inference/test_images/car2.bmp
+[ WARNING ] Image is resized from ((637, 749)) to ((300, 300))
+[ INFO ] Prepare image /home/odsawant/github/benchmark-ai-inference/test_images/cat.jpg
+[ INFO ] Prepare image /home/odsawant/github/benchmark-ai-inference/test_images/dog.jpg
+[ INFO ] Prepare image /home/odsawant/github/benchmark-ai-inference/test_images/person_detection.png
+[ WARNING ] Image is resized from ((960, 1699)) to ((300, 300))
+[Step 10/11] Measuring performance (Start inference asynchronously, 4 inference requests, inference only: True, limits: 20000 ms duration)
+[ INFO ] Benchmarking in inference only mode (inputs filling are not included in measurement loop).
+[ INFO ] First inference took 6.51 ms
+[Step 11/11] Dumping statistics report
+Count:          4176 iterations
+Duration:       20026.01 ms
+Latency:
+    Median:     19.18 ms
+    AVG:        19.11 ms
+    MIN:        16.43 ms
+    MAX:        37.32 ms
+Throughput: 208.53 FPS
