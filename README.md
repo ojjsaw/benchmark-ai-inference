@@ -41,7 +41,7 @@ pip install openvino-dev[caffe]
 ## Download & convert model
 ```
 omz_downloader --name mobilenet-ssd
-mo --input_model public/mobilenet-ssd/mobilenet-ssd.caffemodel --data_type FP32
+omz_converter --name mobilenet-ssd --precisions FP16
 ```
 
 ## Download test images
@@ -56,7 +56,7 @@ curl -o test_images/car2.bmp https://storage.openvinotoolkit.org/data/test_data/
 
 ## Run profiling
 ```
-benchmark_app -m mobilenet-ssd.xml -i test_images -t 20 -d CPU -stream_output -hint throughput
+benchmark_app -m public/mobilenet-ssd/FP16/mobilenet-ssd.xml -i test_images -t 20 -d CPU -stream_output -hint throughput
 ```
 
 ## Docker commands
@@ -64,3 +64,10 @@ benchmark_app -m mobilenet-ssd.xml -i test_images -t 20 -d CPU -stream_output -h
 docker build -t profiling:latest .
 docker run --rm profiling:latest
 ```
+
+## DevCloud job
+```
+qsub -l nodes=1:idc045 job.sh
+```
+
+https://ark.intel.com/content/www/us/en/ark/compare.html?productIds=208082,208076

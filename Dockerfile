@@ -4,7 +4,7 @@ WORKDIR /home/openvino
 
 # Download caffe model and convert to OpenVINO IR
 RUN omz_downloader --name mobilenet-ssd && \
-    mo --input_model public/mobilenet-ssd/mobilenet-ssd.caffemodel --data_type FP32
+    omz_converter --name mobilenet-ssd --precisions FP16
 
 # Download test images data
 RUN mkdir test_images && \
@@ -14,5 +14,5 @@ RUN mkdir test_images && \
     curl -o test_images/car1.png https://storage.openvinotoolkit.org/data/test_data/images/car.png && \
     curl -o test_images/car2.bmp https://storage.openvinotoolkit.org/data/test_data/images/car_1.bmp
 
-ENTRYPOINT benchmark_app -m mobilenet-ssd.xml -i test_images -t 20 -d CPU -stream_output -hint throughput
+ENTRYPOINT benchmark_app -m public/mobilenet-ssd/FP16/mobilenet-ssd.xml -i test_images -t 20 -d CPU -stream_output -hint throughput
 
